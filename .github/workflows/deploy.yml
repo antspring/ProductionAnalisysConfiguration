@@ -41,14 +41,14 @@ jobs:
           script: |
             cd /var/www/production-analysis
             cat <<EOF > .env
-DB_CONNECTION=${{ secrets.DB_CONNECTION }}
-BACKEND_EXTERNAL_PORT=${{ secrets.BACKEND_EXTERNAL_PORT }}
-BACKEND_INTERNAL_PORT=${{ secrets.BACKEND_INTERNAL_PORT }}
-POSTGRES_DB=${{ secrets.POSTGRES_DB }}
-POSTGRES_USER=${{ secrets.POSTGRES_USER }}
-POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}
-POSTGRES_EXTERNAL_PORT=${{ secrets.POSTGRES_EXTERNAL_PORT }}
-POSTGRES_INTERNAL_PORT=${{ secrets.POSTGRES_INTERNAL_PORT }}
-EOF
+            DB_CONNECTION=${{ secrets.DB_CONNECTION }}
+            BACKEND_EXTERNAL_PORT=${{ secrets.BACKEND_EXTERNAL_PORT }}
+            BACKEND_INTERNAL_PORT=${{ secrets.BACKEND_INTERNAL_PORT }}
+            POSTGRES_DB=${{ secrets.POSTGRES_DB }}
+            POSTGRES_USER=${{ secrets.POSTGRES_USER }}
+            POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}
+            POSTGRES_EXTERNAL_PORT=${{ secrets.POSTGRES_EXTERNAL_PORT }}
+            POSTGRES_INTERNAL_PORT=${{ secrets.POSTGRES_INTERNAL_PORT }}
+            EOF
             docker compose pull
             docker compose up -d --remove-orphans
