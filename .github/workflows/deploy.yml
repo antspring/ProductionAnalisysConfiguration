@@ -39,7 +39,7 @@ jobs:
           username: ${{ secrets.PROD_USER }}
           key: ${{ secrets.PROD_SSH_KEY }}
           script: |
-            cd /var/www/production-analysis
+            cd /var/www/ProductionAnalisysConfiguration
             cat <<EOF > .env
             DB_CONNECTION=${{ secrets.DB_CONNECTION }}
             BACKEND_EXTERNAL_PORT=${{ secrets.BACKEND_EXTERNAL_PORT }}
