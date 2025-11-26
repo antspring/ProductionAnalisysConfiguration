@@ -1,6 +1,6 @@
 services:
   production-analysis-backend:
-    image: antspring/production-analysis-backend:1.0.0
+    image: antspring/production-analysis-backend
     container_name: backend
     ports:
       - "${BACKEND_EXTERNAL_PORT}:${BACKEND_INTERNAL_PORT}"
