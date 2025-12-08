@@ -6,7 +6,7 @@ services:
       - "${BACKEND_EXTERNAL_PORT}:${BACKEND_INTERNAL_PORT}"
     env_file:
       - .env
-      depends_on:
+    depends_on:
       - migrate
 
   migrate:
