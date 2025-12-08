@@ -41,7 +41,7 @@ jobs:
             echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
             
             cat <<EOF > .env
-            DB_CONNECTION=${{ secrets.DB_CONNECTION }}
+            ConnectionStrings__PostgreSqlConnectionString=${{ secrets.DB_CONNECTION }}
             BACKEND_EXTERNAL_PORT=${{ secrets.BACKEND_EXTERNAL_PORT }}
             BACKEND_INTERNAL_PORT=${{ secrets.BACKEND_INTERNAL_PORT }}
             POSTGRES_DB=${{ secrets.POSTGRES_DB }}
@@ -52,3 +52,4 @@ jobs:
             EOF
             docker compose pull
             docker compose up -d --remove-orphans
+            docker compose rm migrate -f
