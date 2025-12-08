@@ -6,7 +6,18 @@ services:
       - "${BACKEND_EXTERNAL_PORT}:${BACKEND_INTERNAL_PORT}"
     env_file:
       - .env
-  
+      depends_on:
+      - migrate
+
+  migrate:
+    image: antspring/production-analysis-migrate
+    container_name: migrate
+    env_file:
+        - .env
+    depends_on:
+      - postgres
+    restart: "no"
+
   postgres:
     image: postgres:18
     container_name: postgres
