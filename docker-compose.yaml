@@ -7,7 +7,8 @@ services:
     env_file:
       - .env
     depends_on:
-      - migrate
+      migrate:
+        condition: service_completed_successfully
 
   migrate:
     image: antspring/production-analysis-migrate
